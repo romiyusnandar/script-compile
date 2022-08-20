@@ -1,4 +1,6 @@
 #!/bin/bash
+# Copyright cc 2022 anothermi
+
 # init
 function init() {
     echo "==========================="
