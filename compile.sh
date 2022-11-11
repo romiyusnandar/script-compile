@@ -15,7 +15,14 @@ function compile() {
                           CROSS_COMPILE=aarch64-linux-gnu- \
                           CROSS_COMPILE_ARM32=arm-linux-gnueabi-
 }
+#end
+function ended(){
+    echo "==========================="
+    echo "   COPILE KERNEL COMPLETE  "
+    echo "==========================="
+}
 
 # execute
 init
 compile
+ended
