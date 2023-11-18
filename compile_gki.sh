@@ -21,14 +21,6 @@ CHATIDQ="-1001930168269"
 CHATID="-1001930168269" # Group/channel chatid (use rose/userbot to get it)
 TELEGRAM_TOKEN="5136791856:AAGY5TeaVoeJbd6a2BAlxAjOc-MFWOJzZds" # Get from botfather
 
-# Export Telegram.sh
-TELEGRAM_DIR=$WORK_DIR/telegram
-if ! [ -d "$TELEGRAM" ]; then
-    git clone https://github.com/sirnewbies/telegram.sh/ "${TELEGRAM}"
-fi
-
-TELEGRAM=$TELEGRAM_DIR/telegram
-
 # setup color
 red='\033[0;31m'
 green='\e[0;32m'
@@ -48,6 +40,13 @@ function update_ksu() {
 
 function pack_kernel() {
     echo -e "$yellow << packing kernel... >> \n$white"
+
+    TELEGRAM_FOLDER="${HOME}"/workspaces/telegram
+    if ! [ -d "${TELEGRAM_FOLDER}" ]; then
+        git clone https://github.com/sirnewbies/telegram.sh/ "${TELEGRAM_FOLDER}"
+    fi
+
+    TELEGRAM="${TELEGRAM_FOLDER}"/telegram
 
     git clone "$ANYKERNEL_REPO" -b "$ANYKERNEL_BRANCH" "$ANYKERNEL"
 
