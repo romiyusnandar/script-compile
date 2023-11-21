@@ -28,18 +28,25 @@ white='\033[0m'
 yellow='\033[0;33m'
 
 function clean() {
-    echo -e "$red << cleaning up... >> \n$white"
-    rm -rf $ANYKERNEL out
+    echo -e "\n"
+    echo -e "$red << cleaning up >> \n$white"
+    echo -e "\n"
+    rm -rf $ANYKERNEL
+    rm -rf out
 }
 
 function update_ksu() {
-    echo -e "$yellow << updateing kernelsu.. >> \n$white"
+    echo -e "\n"
+    echo -e "$yellow << updateing kernelsu >> \n$white"
+    echo -e "\n"
     cd $KERNEL_DIR || exit
     ./update_ksu.sh
 }
 
 function pack_kernel() {
-    echo -e "$yellow << packing kernel... >> \n$white"
+    echo -e "\n"
+    echo -e "$yellow << packing kernel >> \n$white"
+    echo -e "\n"
 
     TELEGRAM_FOLDER="${HOME}"/workspaces/telegram
     if ! [ -d "${TELEGRAM_FOLDER}" ]; then
@@ -55,20 +62,28 @@ function pack_kernel() {
     zip -r9 $ZIPNAME ./*
 
     $TELEGRAM -f $ZIPNAME -t $TELEGRAM_TOKEN -c $CHATIDQ
-
+    echo -e "\n"
     echo -e "$green << kernel uploaded to telegram >>"
+    echo -e "\n"
 }
 
 function build_kernel() {
-    echo -e "$yrllow << building kernel... >> \n$white"
+    echo -e "\n"
+    echo -e "$yrllow << building kernel >> \n$white"
+    echo -e "\n"
+    
     cd $WORK_DIR
     LTO=thin BUILD_CONFIG=$KERNEL_DIR/build.config.gki.aarch64 build/build.sh
 
     if [ -e "$KERN_IMG" ]; then
+        echo -e "\n"
         echo -e "$green << compile kernel success! >> \n$white"
+        echo -e "\n"
         pack_kernel
     else
+        echo -e "\n"
         echo -e "$red << compile kernel failed! >> \n$white"
+        echo -e "\n"
     fi
 }
 
