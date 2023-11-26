@@ -31,7 +31,7 @@ function clean() {
     echo -e "\n"
     echo -e "$red << cleaning up >> \n$white"
     echo -e "\n"
-    rm -rf $ANYKERNEL
+    rm -rf anykernel
     rm -rf out
 }
 
