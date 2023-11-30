@@ -5,14 +5,14 @@
 
 # init
 WORK_DIR=$(pwd)
-ANYKERNEL=$WORK_DIR/anykernel
+ANYKERNEL="${$WORK_DIR/}anykernel'
 ANYKERNEL_REPO="https://github.com/sirnewbies/Anykernel3.git" 
 ANYKERNEL_BRANCH="topaz"
 KERNEL_DIR="topaz"
 
 # VERSIONING
 REL="v1.6"
-KERNEL="QuantumCharge-topaz-tapas-$REL"
+KERNEL="QuantumCharge-topaz-tapas-xun-$REL"
 ZIPNAME=$KERNEL.zip
 KERN_IMG=$WORK_DIR/out/android13-5.15/dist/Image
 
@@ -31,7 +31,7 @@ function clean() {
     echo -e "\n"
     echo -e "$red << cleaning up >> \n$white"
     echo -e "\n"
-    rm -rf anykernel
+    rm -rf ${ANYKERNEL}
     rm -rf out
 }
 
