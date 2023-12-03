@@ -9,6 +9,7 @@ yellow='\033[0;33m'
 
 WORK_DIR=$(pwd)
 KERN_IMG="${WORK_DIR}/out/arch/arm64/boot/Image-gz.dtb"
+KERN_IMG2="${WORK_DIR}/out/arch/arm64/boot/Image.gz"
 
 function clean() {
     echo -e "\n"
@@ -27,7 +28,7 @@ function build_kernel() {
                           CROSS_COMPILE=aarch64-linux-gnu- \
                           CROSS_COMPILE_ARM32=arm-linux-gnueabi-
                           
-    if [ -e "$KERN_IMG" ]; then
+    if [ -e "$KERN_IMG" ] || [ -e "$KERN_IMG2" ]; then
         echo -e "\n"
         echo -e "$green << compile kernel success! >> \n$white"
         echo -e "\n"
