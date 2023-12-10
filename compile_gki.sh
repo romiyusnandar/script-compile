@@ -11,8 +11,10 @@ ANYKERNEL_BRANCH="topaz"
 KERNEL_DIR="topaz"
 
 # VERSIONING
+KSU="ksu"
+NKSU="non-ksu"
 REL="v1.6"
-KERNEL="QuantumCharge-topaz-tapas-xun-$REL"
+KERNEL="QuantumCharge-topaz-tapas-xun-$REL-$KSU"
 ZIPNAME=$KERNEL.zip
 KERN_IMG=$WORK_DIR/out/android13-5.15/dist/Image
 
