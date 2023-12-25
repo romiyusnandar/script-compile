@@ -5,7 +5,7 @@
 
 # init
 WORK_DIR=$(pwd)
-ANYKERNEL="${$WORK_DIR}/anykernel"
+ANYKERNEL="${WORK_DIR}/anykernel"
 ANYKERNEL_REPO="https://github.com/sirnewbies/Anykernel3.git" 
 ANYKERNEL_BRANCH="topaz"
 KERNEL_DIR="topaz"
