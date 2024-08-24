@@ -20,7 +20,7 @@ function clean() {
 
 function build_kernel() {
     echo -e "\n"
-    echo -e "$yrllow << building kernel >> \n$white"
+    echo -e "$yellow << building kernel >> \n$white"
     echo -e "\n"
 
     make -j$(nproc --all) O=out ARCH=arm64 <DEVICE>_defconfig
